@@ -1,17 +1,19 @@
-id: 2781
-name: mvkr2
+id: 2777
+name: mvkr
 environments:
-    production:
-        memory: 1024
-        cli-memory: 512
-        build:
-            - 'composer install --no-dev --classmap-authoritative'
-            - 'php artisan event:cache'
-            - 'npm ci && npm run prod && rm -rf node_modules'
-    staging:
-        memory: 1024
-        cli-memory: 512
-        build:
-            - 'composer install --classmap-authoritative'
-            - 'php artisan event:cache'
-            - 'npm ci && npm run dev && rm -rf node_modules'
+  production:
+    memory: 1024
+    cli-memory: 512
+    domain: piapiapia.com
+    build:
+      - 'composer install --no-dev --classmap-authoritative'
+      - 'php artisan event:cache'
+      - 'npm ci && npm run prod && rm -rf node_modules'
+  staging:
+    memory: 1024
+    cli-memory: 512
+    domain: staging.piapiapia.com
+    build:
+      - 'composer install --classmap-authoritative'
+      - 'php artisan event:cache'
+      - 'npm ci && npm run dev && rm -rf node_modules'
